@@ -584,8 +584,7 @@ elif args.getAuthenticatorState:
     print(authenticator.get_authenticator_state())
 elif args.revoke:
     print(authenticator.revoke_authenticator())
+elif authenticator.can_authenticate():
+    authenticator.authenticate_request()
 else:
-    if authenticator.can_authenticate():
-        authenticator.authenticate_request()
-    else:
-        authenticator.register_authenticator()
+    authenticator.register_authenticator()
